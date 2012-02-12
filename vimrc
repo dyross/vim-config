@@ -5,10 +5,11 @@ call pathogen#helptags()
 syntax on
 filetype plugin indent on
 set background=dark
+set autoindent
 
 " looks bad in terminal, just use default theme
 if has("gui_running")
-  colorscheme solarized
+    colorscheme solarized
 endif
 
 " Sets how many lines of history VIM has to remember
@@ -74,3 +75,8 @@ command! Playful cd ~/src/playful/ | :NERDTree
 
 " show line numbers
 set number
+
+" macvim stuff
+set guioptions=aAce
+set guifont=Monaco:h12
+set columns=200

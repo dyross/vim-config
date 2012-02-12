@@ -6,6 +6,7 @@ syntax on
 filetype plugin indent on
 set background=dark
 set autoindent
+set shortmess+=I "don't show splash
 
 " looks bad in terminal, just use default theme
 if has("gui_running")
@@ -14,8 +15,6 @@ endif
 
 " Sets how many lines of history VIM has to remember
 set history=700
-
-set hlsearch "Highlight search things
 
 set incsearch "Make search act like search in modern browsers
 
@@ -50,9 +49,22 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " ignore a lot of file extensions
 set wildignore=*.o,*.obj,.git,tmp,*.class,precompiled,*.jar,*.pyc,eclipse,META-INF,modules
 
-" random plugins
+" Gundo 
 nnoremap <F5> :GundoToggle
 
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" Scala stuff for tagbar
+let g:tagbar_type_scala = {
+    \ 'ctagstype' : 'Scala',
+    \ 'kinds'     : [
+        \ 'c:classes',
+        \ 'o:objects',
+        \ 'f:functions',
+        \ 't:traits'
+    \ ]
+\ }
 
 " Scala stuff
 
@@ -72,6 +84,7 @@ set scrolloff=10
 " get to common repos quick
 command! Api cd ~/src/api/ | :NERDTree
 command! Playful cd ~/src/playful/ | :NERDTree
+command! -nargs=1 Src cd ~/src/<args> | :NERDTree 
 
 " show line numbers
 set number
@@ -80,3 +93,10 @@ set number
 set guioptions=aAce
 set guifont=Monaco:h12
 set columns=200
+
+" Unbind the cursor keys in insert, normal and visual modes.
+for prefix in ['i', 'n', 'v']
+  for key in ['<Up>', '<Down>', '<Left>', '<Right>']
+    exe prefix . "noremap " . key . " <Nop>"
+  endfor
+endfor

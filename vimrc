@@ -54,6 +54,7 @@ nnoremap <F5> :GundoToggle
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
+:set tags=./tags,~/src/tags
 
 " Scala stuff for tagbar
 let g:tagbar_type_scala = {
@@ -65,6 +66,9 @@ let g:tagbar_type_scala = {
         \ 't:traits'
     \ ]
 \ }
+
+
+"set tags=tags;/
 
 " Scala stuff
 
@@ -95,7 +99,7 @@ set guifont=Monaco:h12
 set columns=200
 
 " Unbind the cursor keys in insert, normal and visual modes.
-for prefix in ['i', 'n', 'v']
+for prefix in ['n', 'v']
   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
     exe prefix . "noremap " . key . " <Nop>"
   endfor

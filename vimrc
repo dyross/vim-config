@@ -12,12 +12,14 @@ set number
 
 " looks bad in terminal, just use default theme
 if has("gui_running")
-    colorscheme solarized
+    "colorscheme solarized
     " macvim stuff
     set guioptions=aAce
     set guifont=Monaco:h12
     set columns=200
 endif
+
+colorscheme solarized
 
 " Sets how many lines of history VIM has to remember
 set history=700

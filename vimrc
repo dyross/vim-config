@@ -7,17 +7,22 @@ filetype plugin indent on
 set background=dark
 set autoindent
 set shortmess+=I "don't show splash
+" show line numbers
+set number
 
 " looks bad in terminal, just use default theme
 if has("gui_running")
     colorscheme solarized
+    " macvim stuff
+    set guioptions=aAce
+    set guifont=Monaco:h12
+    set columns=200
 endif
 
 " Sets how many lines of history VIM has to remember
 set history=700
-
-set incsearch "Make search act like search in modern browsers
-
+set ignorecase " you nearly always want this
+set smartcase  " case-sensitive if search contains an uppercase character
 set showmatch "Show matching bracets when text indicator is over them
 set mat=2 "How many tenths of a second to blink
 
@@ -63,7 +68,10 @@ let g:tagbar_type_scala = {
         \ 'c:classes',
         \ 'o:objects',
         \ 'f:functions',
-        \ 't:traits'
+        \ 't:traits',
+        \ 'V:values',
+        \ 'v:variables',
+        \ 'T:types'
     \ ]
 \ }
 
@@ -83,20 +91,14 @@ map <Leader>f mzggVGgq'z
 map ,v :source $MYVIMRC
 
 " make sure the cursor isn't at the edges
-set scrolloff=10
+"set scrolloff=10
 
 " get to common repos quick
 command! Api cd ~/src/api/ | :NERDTree
 command! Playful cd ~/src/playful/ | :NERDTree
 command! -nargs=1 Src cd ~/src/<args> | :NERDTree 
 
-" show line numbers
-set number
 
-" macvim stuff
-set guioptions=aAce
-set guifont=Monaco:h12
-set columns=200
 
 " Unbind the cursor keys in insert, normal and visual modes.
 for prefix in ['n', 'v']

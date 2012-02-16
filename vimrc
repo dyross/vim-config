@@ -23,8 +23,6 @@ colorscheme solarized
 
 " Sets how many lines of history VIM has to remember
 set history=700
-set ignorecase " you nearly always want this
-set smartcase  " case-sensitive if search contains an uppercase character
 set showmatch "Show matching bracets when text indicator is over them
 set mat=2 "How many tenths of a second to blink
 

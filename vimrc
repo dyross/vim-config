@@ -90,6 +90,9 @@ map <Leader>f mzggVGgq'z
 " easy reload vimrc
 map ,v :source $MYVIMRC
 
+" run the current buffer
+map ,r! :!%<CR>
+
 " make sure the cursor isn't at the edges
 "set scrolloff=10
 

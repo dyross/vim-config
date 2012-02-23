@@ -7,8 +7,13 @@ filetype plugin indent on
 set background=dark
 set autoindent
 set shortmess+=I "don't show splash
-" show line numbers
-set number
+set number " show line numbers
+set ruler  " show col numbers
+
+" put swp files in common directory
+set backupdir=~/.vim/backup/
+set directory=~/.vim/backup/
+
 
 " looks bad in terminal, just use default theme
 if has("gui_running")

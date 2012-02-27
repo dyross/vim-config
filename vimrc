@@ -24,6 +24,7 @@ if has("gui_running")
     set columns=200
 endif
 
+set background=light
 colorscheme solarized
 
 " Sets how many lines of history VIM has to remember

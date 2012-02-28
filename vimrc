@@ -15,13 +15,13 @@ set backupdir=~/.vim/backup/
 set directory=~/.vim/backup/
 
 
-" looks bad in terminal, just use default theme
 if has("gui_running")
-    "colorscheme solarized
     " macvim stuff
     set guioptions=aAce
-    set guifont=Monaco:h12
+    "set guifont=Monaco:h12
+    set guifont=Inconsolata:h12
     set columns=200
+    set scrolloff=10 " make sure cursor isn't at edges
 endif
 
 set background=light
@@ -48,11 +48,15 @@ set smarttab
 " set leader to comma
 let mapleader = ","
 
+" shift space in insert mode returns to regular
+"inoremap <S-Space> <Esc>
+
 
 " NERDTree stuff
 
 " Close automatically if only NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+noremap <Leader>n :NERDTree
 
 
 " Command-T stuff
@@ -61,7 +65,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 set wildignore=*.o,*.obj,.git,tmp,*.class,precompiled,*.jar,*.pyc,eclipse,META-INF,modules
 
 " Gundo 
-nnoremap <F5> :GundoToggle
+nnoremap <F5> :GundoToggle<CR>
 
 " Tagbar
 nmap <F8> :TagbarToggle<CR>
@@ -82,8 +86,6 @@ let g:tagbar_type_scala = {
 \ }
 
 
-"set tags=tags;/
-
 " Scala stuff
 
 " alias gq to format
@@ -94,13 +96,12 @@ map <Leader>f mzggVGgq'z
 " random stuff
 
 " easy reload vimrc
-map ,v :source $MYVIMRC
+map <LEADER>v :source $MYVIMRC<CR>
 
 " run the current buffer
-map ,r! :!%<CR>
+map <LEADER>r! :!%<CR>
 
-" make sure the cursor isn't at the edges
-"set scrolloff=10
+
 
 " get to common repos quick
 command! Api cd ~/src/api/ | :NERDTree
@@ -110,8 +111,40 @@ command! -nargs=1 Src cd ~/src/<args> | :NERDTree
 
 
 " Unbind the cursor keys in insert, normal and visual modes.
-for prefix in ['n', 'v']
+for prefix in ['n', 'v', 'i']
   for key in ['<Up>', '<Down>', '<Left>', '<Right>']
     exe prefix . "noremap " . key . " <Nop>"
   endfor
 endfor
+
+
+
+" vimbits stuff
+
+" better command line navigation
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" reselect visual blocks after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" better split nav
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" fix behavior of capital Y
+noremap Y y$
+
+" wrapped lines and jk
+nnoremap j gj
+nnoremap k gk
+
+" sane regex
+nnoremap / /\v
+vnoremap / /\v
+
+" select all
+map <Leader>a ggVG

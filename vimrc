@@ -56,7 +56,7 @@ let mapleader = ","
 
 " Close automatically if only NERDTree is open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-noremap <Leader>n :NERDTree
+noremap <Leader>n :NERDTree<CR>
 
 
 " Command-T stuff
@@ -145,6 +145,13 @@ nnoremap k gk
 " sane regex
 nnoremap / /\v
 vnoremap / /\v
+nnoremap ? ?\v
+vnoremap ? ?\v
+nnoremap s/ s/\v
+vnoremap s/ s/\v
+nnoremap %s/ %s/\v
+vnoremap %s/ %s/\v
 
 " select all
 map <Leader>a ggVG
+

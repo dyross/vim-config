@@ -19,8 +19,9 @@ if has("gui_running")
     " macvim stuff
     set guioptions=aAce
     "set guifont=Monaco:h12
-    set guifont=Inconsolata:h12
-    set columns=200
+    set guifont=Inconsolata-dz:h12
+    " Maximize gvim window.
+    set lines=999 columns=999
     set scrolloff=10 " make sure cursor isn't at edges
 endif
 

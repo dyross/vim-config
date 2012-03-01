@@ -143,16 +143,6 @@ noremap Y y$
 nnoremap j gj
 nnoremap k gk
 
-" sane regex
-nnoremap / /\v
-vnoremap / /\v
-nnoremap ? ?\v
-vnoremap ? ?\v
-nnoremap s/ s/\v
-vnoremap s/ s/\v
-nnoremap %s/ %s/\v
-vnoremap %s/ %s/\v
-
 " select all
 map <Leader>a ggVG
 

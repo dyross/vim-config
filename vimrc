@@ -146,31 +146,3 @@ nnoremap k gk
 " select all
 map <Leader>a ggVG
 
-" VAM
-fun! EnsureVamIsOnDisk(vam_install_path)
-  if !filereadable(a:vam_install_path.'/vim-addon-manager/.git/config')
-     \&& 1 == confirm("Clone VAM into ".a:vam_install_path."?","&Y\n&N")
-    " I'm sorry having to add this reminder. Eventually it'll pay off.
-    call confirm("Remind yourself that most plugins ship with ".
-                \"documentation (README*, doc/*.txt). It is your ".
-                \"first source of knowledge. If you can't find ".
-                \"the info you're looking for in reasonable ".
-                \"time ask maintainers to improve documentation")
-    call mkdir(a:vam_install_path, 'p')
-    execute '!git clone --depth=1 git://github.com/MarcWeber/vim-addon-manager '.shellescape(a:vam_install_path, 1).'/vim-addon-manager'
-    " VAM runs helptags automatically when you install or update 
-    " plugins
-    exec 'helptags '.fnameescape(a:vam_install_path.'/vim-addon-manager/doc')
-  endif
-endf
-
-fun! SetupVAM()
-  " VAM install location:
-  let vam_install_path = expand('$HOME') . '/.vim/vim-addons'
-  call EnsureVamIsOnDisk(vam_install_path)
-  exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
-
-  " Tell VAM which plugins to fetch & load:
-  call vam#ActivateAddons([], {'auto_install' : 0})
-endfun
-call SetupVAM()

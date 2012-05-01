@@ -22,7 +22,7 @@ if has("gui_running")
     set guifont=Inconsolata-dz:h12
     " Maximize gvim window.
     set lines=999 columns=999
-    set scrolloff=10 " make sure cursor isn't at edges
+    set scrolloff=5 " make sure cursor isn't at edges
 endif
 
 set background=light
@@ -146,3 +146,6 @@ nnoremap k gk
 " select all
 map <Leader>a ggVG
 
+" control p
+let g:ctrlp_extensions = ['tag']
+map <Leader>pt :CtrlPTag<CR>

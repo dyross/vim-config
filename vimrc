@@ -25,7 +25,7 @@ if has("gui_running")
     set scrolloff=5 " make sure cursor isn't at edges
 endif
 
-set background=light
+set background=dark
 colorscheme solarized
 
 " Sets how many lines of history VIM has to remember
@@ -45,6 +45,10 @@ set shiftwidth=4
 set tabstop=4
 set smarttab
 
+" Recommended by powerline
+set nocompatible   " Disable vi-compatibility
+set laststatus=2   " Always show the statusline
+set encoding=utf-8 " Necessary to show unicode glyphs
 
 " set leader to comma
 let mapleader = ","

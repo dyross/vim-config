@@ -67,7 +67,7 @@ noremap <Leader>n :NERDTree<CR>
 " Command-T stuff
 
 " ignore a lot of file extensions
-set wildignore=*.o,*.obj,.git,tmp,*.class,precompiled,*.jar,*.pyc,eclipse,META-INF,modules
+set wildignore=*.o,*.obj,.git,tmp,*.class,precompiled,*.jar,*.pyc,eclipse,META-INF
 
 " Gundo 
 nnoremap <F5> :GundoToggle<CR>

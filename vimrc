@@ -53,9 +53,6 @@ set encoding=utf-8 " Necessary to show unicode glyphs
 " set leader to comma
 let mapleader = ","
 
-" shift space in insert mode returns to regular
-"inoremap <S-Space> <Esc>
-
 
 " NERDTree stuff
 
@@ -106,15 +103,13 @@ map <LEADER>v :source $MYVIMRC<CR>
 " run the current buffer
 map <LEADER>r! :!%<CR>
 
+" update tags
 map <LEADER>c :!~/dotags.zsh<CR>
 
 
-
 " get to common repos quick
-command! Api cd ~/src/api/ | :NERDTree
-command! Playful cd ~/src/playful/ | :NERDTree
-command! -nargs=1 Src cd ~/src/<args> | :NERDTree 
-
+command! Api cd ~/src/api2/ | :NERDTree
+command! -nargs=1 Src cd ~/src/<args> | :NERDTree | :silent !~/dotags.zsh & 
 
 
 " Unbind the cursor keys in insert, normal and visual modes.
@@ -123,7 +118,6 @@ for prefix in ['n', 'v', 'i']
     exe prefix . "noremap " . key . " <Nop>"
   endfor
 endfor
-
 
 
 " vimbits stuff

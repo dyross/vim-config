@@ -106,6 +106,8 @@ map <LEADER>v :source $MYVIMRC<CR>
 " run the current buffer
 map <LEADER>r! :!%<CR>
 
+map <LEADER>c :!~/dotags.zsh<CR>
+
 
 
 " get to common repos quick

@@ -64,8 +64,10 @@ noremap <Leader>n :NERDTree<CR>
 
 " Command-T stuff
 
+noremap <Leader>r :CommandTTag<CR>
+
 " ignore a lot of file extensions
-set wildignore=*.o,*.obj,.git,tmp,*.class,precompiled,*.jar,*.pyc,eclipse,META-INF
+set wildignore=*.o,*.obj,.git,tmp,*.class,precompiled,*.jar,*.pyc,eclipse,META-INF,target,*.html
 
 " Gundo 
 nnoremap <F5> :GundoToggle<CR>
@@ -143,9 +145,6 @@ noremap Y y$
 " wrapped lines and jk
 nnoremap j gj
 nnoremap k gk
-
-" select all
-map <Leader>a ggVG
 
 " control p
 let g:ctrlp_extensions = ['tag']
